@@ -4,7 +4,7 @@ import { fetchUsers } from './features/users/usersSlice';
 import { RootState } from './store/store';
 import { useAppDispatch } from './hooks/useAppDispatch';
 import UserTable from './components/UserTable';
-import './styles/appStyle.css';
+import './styles/styles.scss';
 
 function App() {
   const dispatch = useAppDispatch();

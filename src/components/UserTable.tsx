@@ -46,10 +46,10 @@ const UserTable: React.FC<UserTableProps> = ({ users }) => {
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
               <tr key={user.id}>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.phone}</td>
+                <td data-label="Name" >{user.name}</td>
+                <td data-label="Username" >{user.username}</td>
+                <td data-label="Email" >{user.email}</td>
+                <td data-label="Phone" >{user.phone}</td>
               </tr>
             ))
           ) : (
