@@ -47,6 +47,7 @@ table {
         background-color: $primary-color;
         color: white;
         font-weight: bold;
+        position: relative;
     }
 
     tr {
@@ -64,10 +65,20 @@ table {
     }
 }
 
+table th input[type="text"] {
+    width: 90%;
+    padding: 5px;
+    font-size: 14px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    box-shadow: none;
+}
+
 @media (max-width: 600px) {
     table, th, td {
-            display: block;
-            width: 100%;
+        display: block;
+        width: 100%;
     }
 
     th {
@@ -88,5 +99,9 @@ table {
             font-weight: bold;
             text-align: left;
         }
+    }
+
+    table th input[type="text"] {
+        width: 100%;
     }
 }

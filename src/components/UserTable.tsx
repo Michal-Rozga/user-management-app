@@ -1,45 +1,60 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 import { User } from '../features/users/types';
+import { selectFilteredUsers } from '../features/users/selectors';
 
 interface UserTableProps {
   users: User[];
 }
 
 const UserTable: React.FC<UserTableProps> = ({ users }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [nameFilter, setNameFilter] = useState('');
+  const [usernameFilter, setUsernameFilter] = useState('');
+  const [emailFilter, setEmailFilter] = useState('');
+  const [phoneFilter, setPhoneFilter] = useState('');
 
-  const normalizedSearchTerm = searchTerm.trim().toLowerCase();
-
-  const filteredUsers = users.filter((user) => {
-    const normalizedUserName = user.name.toLowerCase();
-    const normalizedUsername = user.username.toLowerCase();
-    const normalizedEmail = user.email.toLowerCase();
-    const normalizedPhone = user.phone.toLowerCase();
-
-    return (
-      normalizedUserName.includes(normalizedSearchTerm) ||
-      normalizedUsername.includes(normalizedSearchTerm) ||
-      normalizedEmail.includes(normalizedSearchTerm) ||
-      normalizedPhone.includes(normalizedSearchTerm)
-    );
-  });
+  const filteredUsers = useSelector((state: RootState) => 
+    selectFilteredUsers(state, nameFilter, usernameFilter, emailFilter, phoneFilter)
+  );
 
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Search by name, username, email, or phone"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-
       <table>
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Phone</th>
+            <th>
+              Name
+              <input
+                type="text"
+                value={nameFilter}
+                onChange={(e) => setNameFilter(e.target.value)}
+              />
+            </th>
+            <th>
+              Username
+              <input
+                type="text"
+                value={usernameFilter}
+                onChange={(e) => setUsernameFilter(e.target.value)}
+              />
+            </th>
+            <th>
+              Email
+              <input
+                type="text"
+                value={emailFilter}
+                onChange={(e) => setEmailFilter(e.target.value)}
+              />
+              </th>
+            <th>
+              Phone
+              <input
+                type="text"
+                value={phoneFilter}
+                onChange={(e) => setPhoneFilter(e.target.value)}
+              />
+              </th>
           </tr>
         </thead>
         <tbody>
