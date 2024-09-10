@@ -3,6 +3,8 @@ import { useSelector } from 'react-redux';
 import { fetchUsers } from './features/users/usersSlice';
 import { RootState } from './store/store';
 import { useAppDispatch } from './hooks/useAppDispatch';
+import UserTable from './components/UserTable';
+import './styles/appStyle.css';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -17,12 +19,8 @@ function App() {
 
   return (
     <div>
-      <h1>Users</h1>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>{user.name} - {user.email}</li>
-        ))}
-      </ul>
+      <h1>User Management Table</h1>
+      <UserTable users={users} />
     </div>
   );
 }
