@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { fetchUsers } from './features/users/usersSlice';
+import { RootState } from './store/store';
+import { useAppDispatch } from './hooks/useAppDispatch';
 
 function App() {
+  const dispatch = useAppDispatch();
+  const { users, loading, error } = useSelector((state: RootState) => state.users);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Users</h1>
+      <ul>
+        {users.map((user) => (
+          <li key={user.id}>{user.name} - {user.email}</li>
+        ))}
+      </ul>
     </div>
   );
 }
