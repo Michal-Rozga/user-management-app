@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/user-managemenr-app/static/css/main.4737ffc5.css",
-    "main.js": "/user-managemenr-app/static/js/main.8901ad6b.js",
-    "static/js/453.3ef3df13.chunk.js": "/user-managemenr-app/static/js/453.3ef3df13.chunk.js",
-    "index.html": "/user-managemenr-app/index.html",
-    "main.4737ffc5.css.map": "/user-managemenr-app/static/css/main.4737ffc5.css.map",
-    "main.8901ad6b.js.map": "/user-managemenr-app/static/js/main.8901ad6b.js.map",
-    "453.3ef3df13.chunk.js.map": "/user-managemenr-app/static/js/453.3ef3df13.chunk.js.map"
+    "main.css": "/user-management-app/static/css/main.4737ffc5.css",
+    "main.js": "/user-management-app/static/js/main.e9ddf4bb.js",
+    "static/js/453.3ef3df13.chunk.js": "/user-management-app/static/js/453.3ef3df13.chunk.js",
+    "index.html": "/user-management-app/index.html",
+    "main.4737ffc5.css.map": "/user-management-app/static/css/main.4737ffc5.css.map",
+    "main.e9ddf4bb.js.map": "/user-management-app/static/js/main.e9ddf4bb.js.map",
+    "453.3ef3df13.chunk.js.map": "/user-management-app/static/js/453.3ef3df13.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4737ffc5.css",
-    "static/js/main.8901ad6b.js"
+    "static/js/main.e9ddf4bb.js"
   ]
 }
