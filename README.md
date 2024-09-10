@@ -27,4 +27,4 @@ This is a user management app built with **React**, **Redux Toolkit**, and **Typ
 4. Access the app in the browser at `http://localhost:3000`
 
 ## Deployment
-The app is deployed on GitHub Pages and can be accessed [here](https://Michal-Rozga.github.io/user-managemenr-app).
+The app is deployed on GitHub Pages and can be accessed [here](https://Michal-Rozga.github.io/user-management-app).
