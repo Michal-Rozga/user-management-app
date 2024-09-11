@@ -4,19 +4,19 @@ $hover-color: #e0f7fa;
 $font-stack: 'Arial', sans-serif;
 $shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-body {
+.app-body {
     font-family: $font-stack;
     background-color: #f4f7f6;
     color: #333;
     padding: 20px;
 }
 
-h1 {
+.app-title {
     text-align: center;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+.search-input {
     width: 100%;
     max-width: 400px;
     padding: 10px;
@@ -30,7 +30,7 @@ input[type="text"] {
     box-shadow: $shadow;
 }
 
-table {
+.user-table {
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -63,29 +63,29 @@ table {
     td {
         border-bottom: 1px solid #ddd;
     }
-}
 
-table th input[type="text"] {
-    width: 90%;
-    padding: 5px;
-    font-size: 14px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
-    margin-top: 5px;
-    box-shadow: none;
+    th .filter-input {
+        width: 90%;
+        padding: 5px;
+        font-size: 14px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+        margin-top: 5px;
+        box-shadow: none;
+    }
 }
 
 @media (max-width: 600px) {
-    table, th, td {
+    .user-table, .user-table th, .user-table td {
         display: block;
         width: 100%;
     }
 
-    th {
+    .user-table th {
         text-align: right;
     }
 
-    td {
+    .user-table td {
         padding: 10px;
         text-align: right;
         position: relative;
@@ -101,7 +101,7 @@ table th input[type="text"] {
         }
     }
 
-    table th input[type="text"] {
+    .user-table th .filter-input {
         width: 100%;
     }
 }

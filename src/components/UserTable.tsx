@@ -1,58 +1,54 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
-import { User } from '../features/users/types';
-import { selectFilteredUsers } from '../features/users/selectors';
+import { User } from '../store/users/types';
+import { selectFilteredUsers } from '../store/users/selectors';
+import { setEmailFilter, setNameFilter, setPhoneFilter, setUsernameFilter } from '../store/users/usersSlice';
 
 interface UserTableProps {
   users: User[];
 }
 
 const UserTable: React.FC<UserTableProps> = ({ users }) => {
-  const [nameFilter, setNameFilter] = useState('');
-  const [usernameFilter, setUsernameFilter] = useState('');
-  const [emailFilter, setEmailFilter] = useState('');
-  const [phoneFilter, setPhoneFilter] = useState('');
+  const dispatch = useDispatch();
 
-  const filteredUsers = useSelector((state: RootState) => 
-    selectFilteredUsers(state, nameFilter, usernameFilter, emailFilter, phoneFilter)
-  );
+  const filteredUsers = useSelector((state: RootState) => selectFilteredUsers(state));
 
   return (
     <div>
-      <table>
+      <table className="user-table">
         <thead>
           <tr>
             <th>
               Name
               <input
                 type="text"
-                value={nameFilter}
-                onChange={(e) => setNameFilter(e.target.value)}
+                className="filter-input"
+                onChange={(e) => dispatch(setNameFilter(e.target.value))}
               />
             </th>
             <th>
               Username
               <input
                 type="text"
-                value={usernameFilter}
-                onChange={(e) => setUsernameFilter(e.target.value)}
+                className="filter-input"
+                onChange={(e) => dispatch(setUsernameFilter(e.target.value))}
               />
             </th>
             <th>
               Email
               <input
                 type="text"
-                value={emailFilter}
-                onChange={(e) => setEmailFilter(e.target.value)}
+                className="filter-input"
+                onChange={(e) => dispatch(setEmailFilter(e.target.value))}
               />
               </th>
             <th>
               Phone
               <input
                 type="text"
-                value={phoneFilter}
-                onChange={(e) => setPhoneFilter(e.target.value)}
+                className="filter-input"
+                onChange={(e) => dispatch(setPhoneFilter(e.target.value))}
               />
               </th>
           </tr>
