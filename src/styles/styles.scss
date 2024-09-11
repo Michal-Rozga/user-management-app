@@ -4,30 +4,25 @@ $hover-color: #e0f7fa;
 $font-stack: 'Arial', sans-serif;
 $shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 .app-body {
     font-family: $font-stack;
     background-color: #f4f7f6;
     color: #333;
     padding: 20px;
+    padding-top: 30px;
+    min-height: 100vh;
 }
 
 .app-title {
     text-align: center;
     margin-bottom: 20px;
-}
-
-.search-input {
-    width: 100%;
-    max-width: 400px;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: $shadow;
+    position: relative;
 }
 
 .user-table {
@@ -41,13 +36,13 @@ $shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     th, td {
         padding: 12px 15px;
         text-align: left;
+        box-sizing: border-box;
     }
 
     th {
         background-color: $primary-color;
         color: white;
         font-weight: bold;
-        position: relative;
     }
 
     tr {
@@ -65,43 +60,32 @@ $shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     th .filter-input {
-        width: 90%;
+        width: 100%;
         padding: 5px;
         font-size: 14px;
         border-radius: 3px;
         border: 1px solid #ccc;
         margin-top: 5px;
-        box-shadow: none;
-    }
-}
-
-@media (max-width: 600px) {
-    .user-table, .user-table th, .user-table td {
-        display: block;
-        width: 100%;
     }
 
-    .user-table th {
-        text-align: right;
-    }
+    @media (max-width: 600px) {
+        th, td {
+            display: block;
+            width: 100%;
+        }
 
-    .user-table td {
-        padding: 10px;
-        text-align: right;
-        position: relative;
-        border-bottom: none;
+        td {
+            padding: 10px;
+            position: relative;
+            border-bottom: none;
+        }
 
-        &:before {
-            content: attr(data-label);
-            position: absolute;
-            left: 0;
-            padding-left: 10px;
-            font-weight: bold;
+        th .filter-input {
+            width: 100%;
+        }
+
+        th {
             text-align: left;
         }
-    }
-
-    .user-table th .filter-input {
-        width: 100%;
     }
 }

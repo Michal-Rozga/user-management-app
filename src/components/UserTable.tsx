@@ -1,18 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { User } from '../store/users/types';
 import { selectFilteredUsers } from '../store/users/selectors';
 import { setEmailFilter, setNameFilter, setPhoneFilter, setUsernameFilter } from '../store/users/usersSlice';
 
-interface UserTableProps {
-  users: User[];
-}
-
-const UserTable: React.FC<UserTableProps> = ({ users }) => {
+const UserTable: React.FC = () => {
   const dispatch = useDispatch();
 
-  const filteredUsers = useSelector((state: RootState) => selectFilteredUsers(state));
+  const filteredUsers = useSelector(selectFilteredUsers);
 
   return (
     <div>
@@ -57,10 +51,10 @@ const UserTable: React.FC<UserTableProps> = ({ users }) => {
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user) => (
               <tr key={user.id}>
-                <td data-label="Name" >{user.name}</td>
-                <td data-label="Username" >{user.username}</td>
-                <td data-label="Email" >{user.email}</td>
-                <td data-label="Phone" >{user.phone}</td>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+                <td>{user.phone}</td>
               </tr>
             ))
           ) : (
